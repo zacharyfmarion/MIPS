@@ -14,9 +14,9 @@ int main(){
   printf("Please enter a number: ");
   scanf("%d", &n);
   int res = isPrime(n);
-  if (res == 0){
-    printf("False");
-  }else{
+  if (res){
     printf("True");
+  }else{
+    printf("False");
   }
 }
