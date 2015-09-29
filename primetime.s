@@ -35,6 +35,13 @@ main:
   li $v0, 10
   syscall
 
+######################################################################
+# ---- Returns the number of prime numbers between $a0 and $a1 ----- #
+#                                                                    #
+# @param $a0: lower bound                                            #
+# @param $a1: upper bound                                            #
+######################################################################
+
 primeTime:
   addi $sp, $sp, -16
   sw $ra, 0($sp)
