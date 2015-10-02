@@ -47,7 +47,7 @@ program_end:
 
 isPrime:
 
-  # Following MIPS calling conventions, allocate space in stack to store caller saved registers
+  # Following MIPS calling conventions, allocate space in stack to store callee saved registers
   # that you will use
 
   addi $sp, $sp, -8

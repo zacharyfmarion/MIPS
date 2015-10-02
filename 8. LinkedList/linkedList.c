@@ -29,17 +29,18 @@ void insert(struct node **head, struct node *newNode){
   }
   // otherwise iterate over the list until correct place is found
   else{
-    while((*head)->next != NULL){
-      if (newNode->val > (*head)->next->val){
+    struct node* p = *head;
+    while(p->next != NULL){
+      if (newNode->val > p->next->val){
         // printf("inserted in middle\n");
-        newNode->next = (*head)->next;
-        (*head)->next = newNode;
+        newNode->next = p->next;
+        p->next = newNode;
         return;
       }
-      (*head) = (*head)->next;
+      p = p->next;
     }
     // printf("inserted at end\n");
-    (*head)->next = newNode;
+    p->next = newNode;
 
   }
 }

@@ -26,7 +26,7 @@ loop:
   sw $s0, 4($sp)
   sw $s1, 8($sp)
 
-  add $s0, $zero, $zero # $s0 is the counter
+  sub $s0, $s0, $s0 # $s0 (counter) = 0
   move $s1, $a0 # store the argument into $s1
 
 loop_main:
