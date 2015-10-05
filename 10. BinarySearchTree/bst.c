@@ -29,6 +29,20 @@ void printTree(struct node *curr){
   printTree(curr->right);
 }
 
+// Proper memory management!
+void freeTree(struct node **head){
+  if ((*head)->left == NULL && (*head)->right == NULL){
+    free(*head);
+    return;
+  }
+  if ((*head)->left != NULL){
+    freeTree(&((*head)->left));
+  }
+  if ((*head)->right != NULL){
+    freeTree(&((*head)->right));
+  }
+}
+
 int main(){
   struct node *head = NULL;
   addNode(5, &head);
@@ -42,4 +56,5 @@ int main(){
   addNode(23, &head);
   addNode(6, &head);
   printTree(head);
+  freeTree(&head);
 }
