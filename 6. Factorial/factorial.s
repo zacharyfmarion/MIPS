@@ -31,7 +31,7 @@ factorial:
   move $s0, $a0
 
   bne $s0, $zero, recursive_step
-  li $v0, 1
+  li $v0, 1 # base case
   j factorial_end
 
 recursive_step:
