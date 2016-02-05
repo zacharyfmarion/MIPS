@@ -2,36 +2,36 @@
 #include <stdlib.h>
 
 // Node struct for the linked list
-struct node{
+typedef struct node{
   int val;
   struct node *next;
-};
+} node;
 
 // Create a linked list node
-void createNode(int val, struct node** newNode){
-  *newNode = (struct node*) malloc(sizeof(struct node));
+void createNode(int val, node** newNode){
+  *newNode = (node*) malloc(sizeof(node));
   (*newNode)->val = val;
   (*newNode)->next = NULL;
 }
 
 // Insert an element in the correct location in the linked list
-void insert(struct node **head, struct node *newNode){
+void insert(node **head, node *newNode){
   // if first entry in the linkedlist
   if (*head == NULL){
     *head = newNode; // make pointer to head the node
     // printf("first\n");
   }
-  // if node value is greater than *head value
-  else if(newNode->val > (*head)->val){
+  // if node value is less than *head value
+  else if(newNode->val < (*head)->val){
     newNode->next = *head;
     *head = newNode; // make newNode the new head
     // printf("new head\n");
   }
   // otherwise iterate over the list until correct place is found
   else{
-    struct node* p = *head;
+    node* p = *head;
     while(p->next != NULL){
-      if (newNode->val > p->next->val){
+      if (newNode->val < p->next->val){
         // printf("inserted in middle\n");
         newNode->next = p->next;
         p->next = newNode;
@@ -46,7 +46,7 @@ void insert(struct node **head, struct node *newNode){
 }
 
 // printing the list
-void printList(struct node **head){
+void printList(node **head){
   while (*head){
     if ((*head)->next == NULL){
       printf("%d", (*head)->val);
@@ -58,8 +58,8 @@ void printList(struct node **head){
 }
 
 // Freeing the list after I'm done with it
-void freeList(struct node **head){
-  struct node *curr;
+void freeList(node **head){
+  node *curr;
   while((curr = *head) != NULL){
     (*head) = (*head)->next;
     free(curr);
@@ -69,7 +69,7 @@ void freeList(struct node **head){
 // MAIN function
 int main(){
   // make a head
-  struct node *head, *entry1, *entry2, *entry3;
+  node *head, *entry1, *entry2, *entry3;
   head = NULL;
   createNode(8, &entry1);
   createNode(4, &entry2);
