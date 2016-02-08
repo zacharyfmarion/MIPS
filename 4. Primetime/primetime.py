@@ -1,14 +1,16 @@
+import math
+
 def primetime(low, high):
 	counter = 0
 	for x in range(low, high):
 		if (x == 1):
 			continue
-		if (isPrime(x)):
+		if (isPrime(float(x))):
 			counter = counter + 1
 	return counter
 
 def isPrime(n):
-	for x in range(2, n-1):
+	for x in range(2, int(math.sqrt(n)+1)):
 		if (n % x == 0):
 			return False
 	return True
