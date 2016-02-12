@@ -1,6 +1,6 @@
 def loop(n):
 	for x in range(0, n-1):
-        print(x)
+		print(x)
 
 def main():
     n = input("Enter an upper bound: ");
